@@ -1,158 +1,200 @@
 /* =============================================
    Reset & Base
    ============================================= */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-button,
-input,
-select,
-textarea {
+body {
+  background: #5e1b1b;
+}
+
+button, input, select, textarea {
   appearance: none;
   background: transparent;
   border: 0;
   outline: none;
+  font: inherit;
+}
+
+ul { list-style: none; }
+
+/* =============================================
+   Page container  (1080 × 1920)
+   ============================================= */
+.page {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  background-color: #5e1b1b;
+  overflow: hidden;
 }
 
 /* =============================================
-   CSS Custom Properties
+   Imágenes decorativas
+   ============================================= */
+.img-deco-top {
+  position: absolute;
+  top: 48px;          /* top-12 */
+  left: -41px;
+  width: 719px;
+  height: 721px;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  aspect-ratio: 1;
+}
+
+.img-deco-bg {
+  position: absolute;
+  top: 625px;
+  left: -205px;
+  width: 1767px;
+  height: 1498px;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  aspect-ratio: 1.37;
+}
+
+/* =============================================
+   Logo
+   ============================================= */
+.img-logo {
+  position: absolute;
+  top: 86px;
+  left: calc(50% - 165px);
+  width: 332px;
+  height: 150px;
+  object-fit: cover;
+  aspect-ratio: 2.21;
+}
+
+/* =============================================
+   Líneas decorativas
+   ============================================= */
+.line {
+  position: absolute;
+  left: calc(50% - 463px);
+  width: 926px;
+  height: 1px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.line-1 { top: 559px; }
+.line-2 { top: 366px; }
+
+/* =============================================
+   Título CARTA
+   ============================================= */
+.carta-title {
+  position: absolute;
+  top: 381px;
+  left: calc(50% - 206px);
+  font-family: 'Cormorant', Helvetica, serif;
+  font-weight: 300;
+  color: #f8eddd;
+  font-size: 96px;   /* text-9xl */
+  line-height: normal;
+  letter-spacing: 0;
+}
+
+/* =============================================
+   Menú — lista
+   ============================================= */
+.menu-list {
+  position: relative;
+}
+
+/* =============================================
+   Menú — items (wrapper)
+   ============================================= */
+.menu-item {
+  position: absolute;
+  width: 928px;
+}
+
+.item-salado  { top: 689px;  left: 77px;                  height: 190px; }
+.item-dulce   { top: 929px;  left: calc(50% - 463px);     height: 202px; }
+.item-panes   { top: 1170px; left: calc(50% - 463px);     height: 204px; }
+.item-bebidas { top: 1409px; left: calc(50% - 463px);     height: 199px; }
+.item-combos  { top: 1650px; left: calc(50% - 463px);     height: 200px; }
+
+/* =============================================
+   Menú — botón
+   ============================================= */
+.menu-btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* =============================================
+   Menú — panel (fondo crema redondeado)
+   ============================================= */
+.menu-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 926px;
+  height: 183px;
+  background-color: #f8eddd;
+  border-radius: 80.5px;
+}
+
+/* Los ítems que tienen top: 1px y left desplazado */
+.panel-offset {
+  top: 1px;
+  left: calc(50% - 464px);
+}
+
+/* Salado: panel en top:0 left:0 sin offset */
+.item-salado .menu-panel {
+  top: 0;
+  left: 0;
+}
+
+/* =============================================
+   Menú — etiquetas de texto
+   ============================================= */
+.menu-label {
+  position: absolute;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  font-weight: 300;
+  color: #5e1b1b;
+  font-size: 80px;
+  line-height: normal;
+  letter-spacing: 0;
+}
+
+.label-salado  { top: 18px; left: calc(50% - 140px); width: 279px; }
+.label-dulce   { top: 31px; left: calc(50% - 114px); width: 226px; }
+.label-panes   { top: 32px; left: calc(50% - 122px); width: 243px; }
+.label-bebidas { top: 29px; left: calc(50% - 161px); width: 321px; }
+.label-combos  { top: 28px; left: calc(50% - 173px); width: 344px; }
+
+/* =============================================
+   Animaciones (heredadas del proyecto)
    ============================================= */
 :root {
   --animate-spin: spin 1s linear infinite;
 }
 
-/* =============================================
-   Layout — equivalente a las clases Tailwind
-   del componente Box
-   ============================================= */
-body {
-  min-height: 100vh;
-}
+.animate-fade-in  { animation: fade-in  1s var(--animation-delay, 0s) ease forwards; }
+.animate-fade-up  { animation: fade-up  1s var(--animation-delay, 0s) ease forwards; }
+.animate-marquee  { animation: marquee  var(--duration) infinite linear; }
+.animate-marquee-vertical { animation: marquee-vertical var(--duration) linear infinite; }
+.animate-shimmer  { animation: shimmer 8s infinite; }
+.animate-spin     { animation: var(--animate-spin); }
 
-.page-container {
-  position: relative;
-  width: 1208px;
-  height: 2084px;
-}
-
-.page-image {
-  display: block;
-  width: 1208px;
-  height: 2084px;
-  user-select: none;
-  pointer-events: none;
-}
-
-/* =============================================
-   Utility classes
-   ============================================= */
-.all-\[unset\] {
-  all: unset;
-}
-
-/* =============================================
-   Animation helpers
-   ============================================= */
-.animate-fade-in {
-  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
-}
-
-.animate-fade-up {
-  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
-}
-
-.animate-marquee {
-  animation: marquee var(--duration) infinite linear;
-}
-
-.animate-marquee-vertical {
-  animation: marquee-vertical var(--duration) linear infinite;
-}
-
-.animate-shimmer {
-  animation: shimmer 8s infinite;
-}
-
-.animate-spin {
-  animation: var(--animate-spin);
-}
-
-/* =============================================
-   Keyframes
-   ============================================= */
-@keyframes spin {
-  to {
-    transform: rotate(1turn);
-  }
-}
-
-@keyframes image-glow {
-  0% {
-    opacity: 0;
-    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
-  }
-  10% {
-    opacity: 0.7;
-    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
-  }
-  to {
-    opacity: 0.4;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fade-up {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes shimmer {
-  0%,
-  90%,
-  to {
-    background-position: calc(-100% - var(--shimmer-width)) 0;
-  }
-  30%,
-  60% {
-    background-position: calc(100% + var(--shimmer-width)) 0;
-  }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translate(0);
-  }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-  }
-}
-
-@keyframes marquee-vertical {
-  0% {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
-  }
-}
+@keyframes spin          { to { transform: rotate(1turn); } }
+@keyframes fade-in       { 0% { opacity:0; transform:translateY(-10px);} to { opacity:1; transform:none; } }
+@keyframes fade-up       { 0% { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+@keyframes shimmer       { 0%,90%,to { background-position: calc(-100% - var(--shimmer-width)) 0; } 30%,60% { background-position: calc(100% + var(--shimmer-width)) 0; } }
+@keyframes marquee       { 0% { transform:translate(0); } to { transform:translateX(calc(-100% - var(--gap))); } }
+@keyframes marquee-vertical { 0% { transform:translateY(0); } to { transform:translateY(calc(-100% - var(--gap))); } }
