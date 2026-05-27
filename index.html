@@ -3,17 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio</title>
+    <title>Carta - Tiempo de Pan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300&family=Poppins:wght@300&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="page-container" aria-label="Página inicial">
-      <img
-        class="page-image"
-        alt="Inicio"
-        src="web/inicio.svg"
-        draggable="false"
-      />
+    <main class="page" aria-label="Carta de Tiempo de Pan">
+
+      <!-- Imagen de fondo decorativa (image4) -->
+      <img class="img-deco-top" src="web/image-4.png" alt="" aria-hidden="true" />
+
+      <!-- Imagen de fondo decorativa grande (image3) -->
+      <img class="img-deco-bg" src="web/image-3.png" alt="" aria-hidden="true" />
+
+      <!-- Logo -->
+      <img class="img-logo" src="web/image-2.png" alt="Logo de Tiempo de Pan" />
+
+      <!-- Línea decorativa inferior encabezado -->
+      <img class="line line-1" src="web/line-1.svg" alt="" aria-hidden="true" />
+
+      <section aria-labelledby="menu-title">
+        <!-- Línea decorativa superior título -->
+        <img class="line line-2" src="web/line-2.svg" alt="" aria-hidden="true" />
+
+        <h1 id="menu-title" class="carta-title">CARTA</h1>
+
+        <nav aria-label="Categorías del menú">
+          <ul class="menu-list">
+
+            <li class="menu-item item-salado">
+              <button type="button" class="menu-btn" aria-label="Salado">
+                <div class="menu-panel"></div>
+                <span class="menu-label label-salado">Salado</span>
+              </button>
+            </li>
+
+            <li class="menu-item item-dulce">
+              <button type="button" class="menu-btn" aria-label="Dulce">
+                <div class="menu-panel panel-offset"></div>
+                <span class="menu-label label-dulce">Dulce</span>
+              </button>
+            </li>
+
+            <li class="menu-item item-panes">
+              <button type="button" class="menu-btn" aria-label="Panes">
+                <div class="menu-panel panel-offset"></div>
+                <span class="menu-label label-panes">Panes</span>
+              </button>
+            </li>
+
+            <li class="menu-item item-bebidas">
+              <button type="button" class="menu-btn" aria-label="Bebidas">
+                <div class="menu-panel panel-offset"></div>
+                <span class="menu-label label-bebidas">Bebidas</span>
+              </button>
+            </li>
+
+            <li class="menu-item item-combos">
+              <button type="button" class="menu-btn" aria-label="Combos">
+                <div class="menu-panel panel-offset"></div>
+                <span class="menu-label label-combos">Combos</span>
+              </button>
+            </li>
+
+          </ul>
+        </nav>
+      </section>
     </main>
   </body>
 </html>
